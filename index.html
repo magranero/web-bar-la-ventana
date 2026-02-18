@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar Restaurante La Ventana — Santander | Cocina y Pinchos en El Somo</title>
+    <meta name="description" content="Bar Restaurante La Ventana en Santander. Cocina casera, pinchos, menú del día y ambiente familiar. C. el Somo, 114 — tu bar de barrio de confianza.">
+    <meta name="theme-color" content="#1c1c1c">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#faf8f4;--bg-dark:#1c1c1c;--text:#2a2a2a;--text-light:#6b6560;--accent:#2563eb;--accent-light:#3b82f6;--deep:#1e3a5f;--cream:#f0f4f8;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Plus Jakarta Sans',system-ui,sans-serif}
+        *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:var(--sans);color:var(--text);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}img{max-width:100%;height:auto;display:block}
+
+        .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(28,28,28,.95);backdrop-filter:blur(12px);padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between}
+        .nav-brand{font-family:var(--serif);font-size:1.4rem;font-weight:700;color:#fff;text-decoration:none}
+        .nav-brand span{color:var(--accent-light)}
+        .nav-links{display:flex;align-items:center;gap:1.8rem}
+        .nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s}
+        .nav-links a:hover{color:#fff}
+        .nav-cta{background:var(--accent)!important;color:#fff!important;padding:.5rem 1.4rem;border-radius:6px;font-weight:600!important}
+
+        .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;background:url('hero.webp') center/cover no-repeat}
+        .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.1) 0%,rgba(0,0,0,.3) 40%,rgba(0,0,0,.85) 100%)}
+        .hero-content{position:relative;z-index:1;padding:0 2.5rem 5rem;max-width:750px}
+        .hero-tag{display:inline-block;font-size:.75rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--accent-light);margin-bottom:1.2rem;padding:.4rem 1rem;border:1px solid rgba(37,99,235,.4);border-radius:4px}
+        .hero h1{font-family:var(--serif);font-size:clamp(3rem,7vw,4.5rem);font-weight:700;color:#fff;line-height:1.05;margin-bottom:1rem}
+        .hero h1 em{font-style:italic;color:var(--accent-light)}
+        .hero-sub{font-size:1.15rem;color:rgba(255,255,255,.8);max-width:520px;line-height:1.7;margin-bottom:2rem}
+        .hero-meta{display:flex;flex-wrap:wrap;gap:1.5rem;margin-bottom:2rem}
+        .hero-meta-item{display:flex;align-items:center;gap:.5rem;font-size:.9rem;color:rgba(255,255,255,.75)}
+        .hero-meta-item strong{color:#fff}
+        .stars{color:#f5c518;font-size:.85rem}
+        .hero-buttons{display:flex;flex-wrap:wrap;gap:1rem}
+        .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.95rem 2rem;border-radius:8px;text-decoration:none;font-weight:600;font-size:1rem;transition:all .2s;border:none}
+        .btn-blue{background:var(--accent);color:#fff}
+        .btn-blue:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,99,235,.3)}
+        .btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35)}
+        .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+
+        .ribbon{background:var(--bg-dark);color:rgba(255,255,255,.5);padding:1.2rem 2rem;text-align:center;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
+        .ribbon span{color:var(--accent-light);margin:0 1.5rem}
+
+        .section{padding:6rem 2rem}.section-inner{max-width:1100px;margin:0 auto}
+        .section-label{font-size:.75rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem}
+        .section-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--text);line-height:1.15;margin-bottom:1rem}
+        .section-desc{font-size:1.05rem;color:var(--text-light);max-width:600px;line-height:1.8}
+
+        .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:3rem}
+        .about-img{border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.12)}
+        .about-img img{width:100%;aspect-ratio:4/3;object-fit:cover}
+        .about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}
+        .stat{padding:1.2rem;border-left:3px solid var(--accent)}
+        .stat-number{font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--deep);line-height:1}
+        .stat-label{font-size:.85rem;color:var(--text-light);margin-top:.3rem}
+
+        .specialties{background:var(--cream)}
+        .spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+        .spec-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.05);transition:transform .25s,box-shadow .25s}
+        .spec-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.1)}
+        .spec-card img{width:100%;aspect-ratio:16/10;object-fit:cover}
+        .spec-card-body{padding:1.5rem}
+        .spec-card h3{font-family:var(--serif);font-size:1.3rem;font-weight:700;margin-bottom:.5rem}
+        .spec-card p{font-size:.9rem;color:var(--text-light);line-height:1.6}
+
+        .cta-banner{background:var(--deep);color:#fff;padding:5rem 2rem;text-align:center}
+        .cta-banner-inner{max-width:600px;margin:0 auto}
+        .cta-banner h2{font-family:var(--serif);font-size:clamp(2rem,4vw,2.8rem);font-weight:700;margin-bottom:1rem}
+        .cta-banner p{font-size:1.1rem;opacity:.85;margin-bottom:2rem;line-height:1.7}
+        .btn-white{display:inline-flex;align-items:center;gap:.5rem;background:#fff;color:var(--deep);padding:1rem 2.5rem;border-radius:8px;font-weight:700;font-size:1.05rem;text-decoration:none;transition:all .2s}
+        .btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
+
+        .hours-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:3rem}
+        .hours-table{width:100%}.hours-table tr{border-bottom:1px solid rgba(0,0,0,.06)}.hours-table td{padding:1rem 0;font-size:.95rem}.hours-table td:first-child{font-weight:600}.hours-table td:last-child{text-align:right;color:var(--text-light)}.hours-table .today td{color:var(--accent);font-weight:600}
+        .hours-note{background:var(--cream);border-radius:12px;padding:2rem;margin-top:1.5rem}
+        .hours-note h3{font-family:var(--serif);font-size:1.3rem;font-weight:700;margin-bottom:.8rem;color:var(--deep)}
+        .hours-note p{font-size:.95rem;color:var(--text-light);line-height:1.7}
+        .hours-note a{display:inline-flex;align-items:center;gap:.5rem;color:var(--accent);font-weight:600;text-decoration:none;margin-top:1rem;font-size:1.05rem}
+
+        .map-section{background:var(--cream);padding:0}.map-grid{display:grid;grid-template-columns:1fr 1fr}
+        .map-info{padding:4rem 3rem;display:flex;flex-direction:column;justify-content:center}
+        .map-info h2{font-family:var(--serif);font-size:2rem;font-weight:700;margin-bottom:1.5rem}
+        .map-detail{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.5rem}
+        .map-detail-icon{width:40px;height:40px;border-radius:8px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+        .map-detail-text h4{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-light);margin-bottom:.2rem}
+        .map-detail-text p{font-size:.95rem}.map-detail-text a{color:var(--accent);text-decoration:none;font-weight:600}
+        .map-embed{min-height:450px}.map-embed iframe{width:100%;height:100%;min-height:450px;border:0}
+
+        .cta-final{background:var(--bg-dark);color:#fff;padding:6rem 2rem;text-align:center;position:relative}
+        .cta-final::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(37,99,235,.15),transparent 70%)}
+        .cta-final-inner{position:relative;z-index:1;max-width:650px;margin:0 auto}
+        .cta-final h2{font-family:var(--serif);font-size:clamp(2.2rem,5vw,3.2rem);font-weight:700;margin-bottom:1rem;line-height:1.15}
+        .cta-final h2 em{font-style:italic;color:var(--accent-light)}
+        .cta-final p{font-size:1.1rem;opacity:.7;margin-bottom:2.5rem;line-height:1.7}
+        .cta-final-buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem}
+
+        footer{padding:2.5rem 2rem;text-align:center;font-size:.82rem;color:var(--text-light);border-top:1px solid rgba(0,0,0,.06)}footer a{color:var(--accent);text-decoration:none}
+        .fade-in{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}.fade-in.visible{opacity:1;transform:translateY(0)}
+
+        @media(max-width:900px){.about-grid,.hours-grid{grid-template-columns:1fr;gap:2.5rem}.spec-grid{grid-template-columns:1fr 1fr}.map-grid{grid-template-columns:1fr}.map-info{padding:3rem 2rem}}
+        @media(max-width:600px){.nav{padding:0 1.2rem}.nav-links a:not(.nav-cta){display:none}.hero-content{padding:0 1.5rem 3.5rem}.section{padding:4rem 1.5rem}.spec-grid{grid-template-columns:1fr}.hero-buttons{flex-direction:column}.cta-final-buttons{flex-direction:column;align-items:center}.ribbon span{margin:0 .8rem}}
+    </style>
+</head>
+<body>
+
+<nav class="nav">
+    <a href="#" class="nav-brand">La <span>Ventana</span></a>
+    <div class="nav-links">
+        <a href="#nosotros">Nosotros</a>
+        <a href="#horario">Horario</a>
+        <a href="tel:+34942337035" class="nav-cta">📞 Reservar</a>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="hero-content">
+        <div class="hero-tag">C. el Somo, 114 · Santander</div>
+        <h1>Tu bar de barrio de <em>toda la vida</em></h1>
+        <p class="hero-sub">Cocina casera, pinchos generosos y el mejor ambiente de barrio. Donde cada cliente es de la familia.</p>
+        <div class="hero-meta">
+            <div class="hero-meta-item"><span class="stars">★★★★★</span> <strong>4.6</strong> en Google</div>
+            <div class="hero-meta-item">📍 C. el Somo, 114</div>
+        </div>
+        <div class="hero-buttons">
+            <a href="tel:+34942337035" class="btn btn-blue">📞 Llamar para reservar</a>
+        </div>
+    </div>
+</header>
+
+<div class="ribbon">Pinchos <span>✦</span> Menú del día <span>✦</span> Raciones <span>✦</span> Cocina casera <span>✦</span> Buen ambiente</div>
+
+<section class="section" id="nosotros">
+    <div class="section-inner">
+        <div class="about-grid">
+            <div class="fade-in">
+                <div class="section-label">Nuestro rincón</div>
+                <h2 class="section-title">Más que un bar, una segunda casa</h2>
+                <p class="section-desc">Bar Restaurante La Ventana es ese sitio al que vuelves siempre. Cocina casera sin pretensiones, pinchos que llenan y un ambiente donde te sientes como en casa. En la calle El Somo, un clásico del barrio que no necesita presentación.</p>
+                <p class="section-desc" style="margin-top:1rem">Ya sea para el menú del día, unos pinchos a mediodía o una cena entre amigos, aquí encontrarás buena comida, buen trato y precios honestos.</p>
+                <div class="about-stats">
+                    <div class="stat"><div class="stat-number">4.6★</div><div class="stat-label">Valoración Google</div></div>
+                    <div class="stat"><div class="stat-number">Barrio</div><div class="stat-label">Ambiente familiar</div></div>
+                    <div class="stat"><div class="stat-number">Casera</div><div class="stat-label">Cocina de verdad</div></div>
+                    <div class="stat"><div class="stat-number">Menú</div><div class="stat-label">Del día completo</div></div>
+                </div>
+            </div>
+            <div class="about-img fade-in">
+                <img src="interior.webp" alt="Interior de Bar Restaurante La Ventana, Santander" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section specialties">
+    <div class="section-inner">
+        <div class="fade-in" style="text-align:center;margin-bottom:1rem">
+            <div class="section-label">Lo mejor de La Ventana</div>
+            <h2 class="section-title">¿Qué te apetece hoy?</h2>
+        </div>
+        <div class="spec-grid">
+            <div class="spec-card fade-in">
+                <img src="pintxos.webp" alt="Pinchos variados" loading="lazy">
+                <div class="spec-card-body"><h3>Pinchos de barra</h3><p>Selección diaria de pinchos frescos. Croquetas, tortilla, anchoas y lo que el día nos traiga.</p></div>
+            </div>
+            <div class="spec-card fade-in">
+                <img src="churros.webp" alt="Cocina tradicional" loading="lazy">
+                <div class="spec-card-body"><h3>Platos caseros</h3><p>Guisos, carnes a la plancha, pescado fresco y las recetas de siempre. Comida de verdad, como la de casa.</p></div>
+            </div>
+            <div class="spec-card fade-in">
+                <img src="coffee.webp" alt="Café y merienda" loading="lazy">
+                <div class="spec-card-body"><h3>Cafés y meriendas</h3><p>Buen café, meriendas tranquilas y sobremesas largas. El ritmo lo pones tú.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="cta-banner">
+    <div class="cta-banner-inner fade-in">
+        <h2>📞 ¿Quedamos en La Ventana?</h2>
+        <p>Llámanos y te guardamos mesa. Cocina casera y buen rollo garantizado.</p>
+        <a href="tel:+34942337035" class="btn-white">Llamar: 942 33 70 35</a>
+    </div>
+</div>
+
+<section class="section" id="horario">
+    <div class="section-inner">
+        <div class="hours-grid">
+            <div class="fade-in">
+                <div class="section-label">Horario</div>
+                <h2 class="section-title">¿Cuándo nos vemos?</h2>
+                <table class="hours-table">
+                    <tr><td>Lunes</td><td>8:00 – 23:00</td></tr>
+                    <tr><td>Martes</td><td>8:00 – 23:00</td></tr>
+                    <tr><td>Miércoles</td><td>8:00 – 23:00</td></tr>
+                    <tr><td>Jueves</td><td>8:00 – 23:00</td></tr>
+                    <tr><td>Viernes</td><td>8:00 – 0:00</td></tr>
+                    <tr><td>Sábado</td><td>9:00 – 0:00</td></tr>
+                    <tr><td>Domingo</td><td>9:00 – 16:00</td></tr>
+                </table>
+            </div>
+            <div class="fade-in">
+                <div class="hours-note">
+                    <h3>📍 Calle El Somo, 114</h3>
+                    <p>Estamos en la calle El Somo, fácil de encontrar y con aparcamiento cercano. Tu bar de barrio, cerca de casa.</p>
+                    <a href="tel:+34942337035">📞 942 33 70 35 — Llámanos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="map-section">
+    <div class="map-grid">
+        <div class="map-info">
+            <h2>Encuéntranos</h2>
+            <div class="map-detail"><div class="map-detail-icon">📍</div><div class="map-detail-text"><h4>Dirección</h4><p>C. el Somo, 114<br>39012 Santander, Cantabria</p></div></div>
+            <div class="map-detail"><div class="map-detail-icon">📞</div><div class="map-detail-text"><h4>Teléfono</h4><p><a href="tel:+34942337035">942 33 70 35</a></p></div></div>
+            <div class="map-detail"><div class="map-detail-icon">💰</div><div class="map-detail-text"><h4>Precio medio</h4><p>Económico · €<br>Menú del día y raciones</p></div></div>
+        </div>
+        <div class="map-embed">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1000!2d-3.838!3d43.468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDI4JzA0LjgiTiAzwrA1MCcxNi44Ilc!5e0!3m2!1ses!2ses!4v1" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</section>
+
+<section class="cta-final">
+    <div class="cta-final-inner fade-in">
+        <h2>Comida casera, <em>trato de familia</em></h2>
+        <p>Bar Restaurante La Ventana, donde cada día es una buena razón para venir. Te esperamos.</p>
+        <div class="cta-final-buttons">
+            <a href="tel:+34942337035" class="btn btn-blue">📞 Llamar: 942 33 70 35</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Bar Restaurante La Ventana · C. el Somo, 114 · Santander</p>
+    <p style="margin-top:.5rem">Web creada por <a href="https://automatizar.net">Automatizar.net</a></p>
+</footer>
+
+<script>
+    const obs=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.15});
+    document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+    const days=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+    const today=days[new Date().getDay()];
+    document.querySelectorAll('.hours-table tr').forEach(tr=>{if(tr.querySelector('td')?.textContent.toLowerCase()===today)tr.classList.add('today')});
+</script>
+</body>
+</html>
